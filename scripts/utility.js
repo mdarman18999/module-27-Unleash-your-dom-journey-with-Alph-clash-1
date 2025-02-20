@@ -18,9 +18,9 @@ function getARandomAlphabet(){
     const alphabets = alphabetString.split('')
 
     const randomNumber = Math.random() * 25;
-    const kadir = Math.round(randomNumber)
+    const index = Math.round(randomNumber)
 
-    const alphabet = alphabets[kadir];
+    const alphabet = alphabets[index];
     return alphabet;
 }
 

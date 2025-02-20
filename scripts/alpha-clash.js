@@ -25,8 +25,11 @@
 //     am.classList.remove('hidden')
 // }
 
+function handleKeyboardButtonPress(){
+    console.log('button pressed');
+}
 
-
+document.addEventListener('keyup', handleKeyboardButtonPress)
 
 function continueGame(){
     // step -1: generate a random alphabet
