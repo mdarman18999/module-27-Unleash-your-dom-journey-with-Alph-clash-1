@@ -8,10 +8,20 @@ function showElementById(elementId){
     your.classList.remove('hidden');
 }
 
+
+// set 
 function setBackgroundColorById(elementId){
     const element = document.getElementById(elementId);
     element.classList.add('bg-orange-400');
 }
+
+// remove >
+function removeBAckgroundColorById(elementId){
+    const element = document.getElementById(elementId);
+    element.classList.remove('bg-orange-400')
+}
+
+
 
 function getARandomAlphabet(){
     const alphabetString = 'abcdefghijklmnopqrstuvwxyz';

@@ -25,16 +25,55 @@
 //     am.classList.remove('hidden')
 // }
 
-function handleKeyboardButtonPress(){
-    console.log('button pressed');
+function handleKeyboardKeyUpEvent(event){
+    const playerPressed = event.key;
+
+    // key player is expected to press 
+    const currentAlphabetElement = document.getElementById('current-alphabet')
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+
+    // check right or wrong key pressed
+    if(playerPressed === expectedAlphabet){
+        console.log('you got a point !');
+        // update score: 
+        // 1. get the current score
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoreText)
+        console.log(currentScore);
+        // 2. increase the score by 1
+        const newScore = currentScore + 1;
+        // 3. show the update score 
+        currentScoreElement.innerText = newScore
+        // start a new round
+        removeBAckgroundColorById(expectedAlphabet)
+        continueGame();
+    }
+    // 01926217169
+    // 01743956422
+    else{
+        console.log('dhurr miya right jy gay chp den')
+        // step-1: get the current life number
+        const currentLifeElement = document.getElementById('current-life')
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText)
+
+        // step-2: reduce the life count
+        const neWLife = currentLife - 1;
+        // step-3: display the updated life count
+        currentLifeElement.innerText = neWLife;
+        
+
+    }
 }
 
-document.addEventListener('keyup', handleKeyboardButtonPress)
+document.addEventListener('keyup', handleKeyboardKeyUpEvent)
 
 function continueGame(){
     // step -1: generate a random alphabet
       const alphabet = getARandomAlphabet();
-      console.log('your random alphabet', alphabet);
+    //   console.log('your random alphabet', alphabet);
 
       // set randomly generated alphabet to the screen (show it)
       const currentAlphabetElement = document.getElementById('current-alphabet');
